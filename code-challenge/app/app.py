@@ -24,6 +24,8 @@ db.init_app(app)
 
 # ... existing code ...
 
+print("server starting")
+
 @app.route('/heroes', methods=['GET'])
 def get_heroes():
     heroes = Hero.query.all()
@@ -106,5 +108,5 @@ def create_hero_power():
         abort(400, {'error': f'Failed to create HeroPower: {str(e)}'})
 
 if __name__ == '__main__':
-    app.run(port=5555)
+    app.run(port=5555,debug=True)
 
